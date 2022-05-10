@@ -1,0 +1,17 @@
+body {
+	background-color: #98C1D9;
+	color: #3D5A80;
+	font-weight: bold;
+}
+a:hover {
+  background-color: #EE6C4D;
+}
+.operator-pic {
+	float: right;	
+}
+.call-to-action {
+	float: left;
+}
+.contactinfo {
+	margin: 10px;
+}
