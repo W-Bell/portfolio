@@ -10,34 +10,37 @@
             color: #f77f00;
             min-width: 550px;
             font-family: Arial, sans-serif;
-            padding: 20px; /* Added padding around the body */
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Centers content */
         }
-        .jumbotron {
+        .container {
+            width: 80%; /* Only use 80% of the screen for content */
             background-color: #eae2b7;
-            color: #003049;
-            padding: 20px; /* Added padding for a less cramped feel */
+            padding: 20px;
+            border-radius: 10px;
         }
         .form-group {
             margin-bottom: 20px; /* Space between fields */
         }
         .form-group label {
-            display: block; /* Makes labels block-level for spacing */
+            display: block;
             margin-bottom: 5px;
-            text-indent: 10px; /* Indent label text */
+            text-indent: 10px;
         }
         .form-group input {
             width: calc(100% - 20px); /* Full width minus padding */
             padding: 10px;
-            margin-left: 10px; /* Indent input fields */
+            margin-left: 10px;
         }
         .btn {
-            background-color: #f77f00;    
+            background-color: #f77f00;
             color: #003049;
             margin: 5px;
             transition: 0.5s;
-            padding: 10px 20px; /* Padding for buttons */
-            border: none; /* No border */
-            cursor: pointer; /* Pointer cursor on hover */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
             background-color: #fcbf49;
@@ -46,48 +49,54 @@
         footer {
             text-align: center;
             font-size: 20px;
-            margin-top: 20px; /* Space above footer */
+            margin-top: 20px;
         }
         .footer_logo {
-            width: 50px; 
+            width: 50px;
             border: 5px solid #f77f00;
         }
         .footer_logo:hover {
             border: 5px solid #fcbf49;
         }
+        .icon {
+            width: 20px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
-    <div class="jumbotron">
-        <h1>Ready-Set-Go Web Pages</h1>
-        <div class="form-group">
-            <label for="businessName">Business Name:</label>
-            <input type="text" id="businessName" required>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Ready-Set-Go Web Pages</h1>
+            <div class="form-group">
+                <label for="businessName">Business Name:</label>
+                <input type="text" id="businessName" required>
+            </div>
+            <div class="form-group">
+                <label for="businessType">Type of Business:</label>
+                <input type="text" id="businessType" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="facebook">Facebook Link:</label>
+                <input type="url" id="facebook">
+            </div>
+            <div class="form-group">
+                <label for="keywords">Keywords (for SEO, separated by commas):</label>
+                <input type="text" id="keywords">
+            </div>
+            <button class="btn" onclick="generatePage()">Generate Page</button>
         </div>
-        <div class="form-group">
-            <label for="businessType">Type of Business:</label>
-            <input type="text" id="businessType" required>
-        </div>
-        <div class="form-group">
-            <label for="location">Location:</label>
-            <input type="text" id="location" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-        </div>
-        <div class="form-group">
-            <label for="facebook">Facebook Link:</label>
-            <input type="url" id="facebook">
-        </div>
-        <div class="form-group">
-            <label for="keywords">Keywords (for SEO):</label>
-            <input type="text" id="keywords">
-        </div>
-        <button class="btn" onclick="generatePage()">Generate Page</button>
     </div>
     <footer>
-        <p>&copy; 2024 Ready-Set-Go Web Pages</p>
+        <p>&copy; 2024 Ready-Set-Go Web Pages by Bell Web Development</p>
     </footer>
 
     <script>
@@ -111,6 +120,7 @@
             background-color: #003049;
             color: #f77f00;
             min-width: 550px;
+            font-family: Arial, sans-serif;
         }
         .jumbotron {
             background-color: #eae2b7;
@@ -121,6 +131,10 @@
             text-align: center;
             font-size: 20px;
         }
+        .icon {
+            width: 20px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
@@ -128,12 +142,12 @@
         <h1>Welcome to ${businessName}</h1>
         <p>Type of Business: ${businessType}</p>
         <p>Location: ${location}</p>
-        <p>Email: ${email}</p>
-        <footer>
-            <p>Follow us on Facebook: <a href="${facebook}">${facebook}</a></p>
-            <p>Keywords: ${keywords}</p>
-        </footer>
     </div>
+    <footer>
+        <p>Email: <a href="mailto:${email}"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_Icon.svg" alt="Email"></a></p>
+        <p>Follow us on Facebook: <a href="${facebook}"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a></p>
+        <p>Keywords: ${keywords.split(',').join(', ')}</p>
+    </footer>
 </body>
 </html>`;
 
