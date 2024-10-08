@@ -18,6 +18,17 @@
             text-align: center;
         }
 
+        #form-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #form-wrapper {
+            width: 80%;
+            max-width: 1000px;
+        }
+
         section {
             padding: 20px;
         }
@@ -65,6 +76,7 @@
                 const location = document.getElementById('location').value;
                 const services = document.getElementById('services').value;
                 const contactInfo = document.getElementById('contact-info').value;
+                const keywords = document.getElementById('keywords').value;
 
                 // Generate HTML content for the template
                 const htmlContent = `
@@ -75,6 +87,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>${businessName} - ${businessType}</title>
                     <meta name="description" content="${businessType} located in ${location}. Services include ${services}.">
+                    <meta name="keywords" content="${keywords}">
                     <style>
                         body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
                         header { background-color: #f5f5f5; padding: 20px; text-align: center; }
@@ -117,25 +130,30 @@
     </header>
 
     <section id="form-section">
-        <h2>Create Your Business Page</h2>
-        <form id="business-info-form">
-            <label for="business-name">Business Name:</label>
-            <input type="text" id="business-name" name="business-name" required>
+        <div id="form-wrapper">
+            <h2>Create Your Business Page</h2>
+            <form id="business-info-form">
+                <label for="business-name">Business Name:</label>
+                <input type="text" id="business-name" name="business-name" required>
 
-            <label for="business-type">Type of Business:</label>
-            <input type="text" id="business-type" name="business-type" required>
+                <label for="business-type">Type of Business:</label>
+                <input type="text" id="business-type" name="business-type" required>
 
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" required>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
 
-            <label for="services">Services Offered:</label>
-            <textarea id="services" name="services" required></textarea>
+                <label for="services">Services Offered:</label>
+                <textarea id="services" name="services" required></textarea>
 
-            <label for="contact-info">Contact Info:</label>
-            <input type="text" id="contact-info" name="contact-info" required>
+                <label for="contact-info">Contact Info:</label>
+                <input type="text" id="contact-info" name="contact-info" required>
 
-            <button type="submit">Generate Web Page</button>
-        </form>
+                <label for="keywords">Keywords (for SEO):</label>
+                <input type="text" id="keywords" name="keywords" required>
+
+                <button type="submit">Generate Web Page</button>
+            </form>
+        </div>
     </section>
 
     <section id="download-section">
