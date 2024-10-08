@@ -1,90 +1,77 @@
 body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-color: #003049;
-            color: #f77f00;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            background-color: #eae2b7;
-            padding: 20px;
-            border-radius: 10px;
-            flex-grow: 1;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            text-indent: 10px;
-        }
-        .form-group input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-left: 10px;
-        }
-        .btn {
-            background-color: #f77f00;
-            color: #003049;
-            margin: 5px;
-            transition: 0.5s;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #fcbf49;
-            color: #f77f00;
-        }
-        footer {
-            background-color: #003049;
-            color: #f77f00;
-            text-align: center;
-            padding: 20px;
-            font-size: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        .footer_logo {
-            width: 50px;
-            border: 5px solid #f77f00;
-        }
-        .footer_logo:hover {
-            border: 5px solid #fcbf49;
-        }
-        .icon {
-            width: 20px;
-            vertical-align: middle;
-        }
+height: 100%;
+margin: 0;
+padding: 0;
+}
+body {
+background-color: #003049;
+color: #f77f00;
+font-family: Arial, sans-serif;
+display: flex;
+flex-direction: column;
+}
+.container {
+width: 80%;
+margin: auto;
+background-color: #eae2b7;
+padding: 20px;
+border-radius: 10px;
+flex-grow: 1;
+}
+.btn {
+background-color: #f77f00;
+color: #003049;
+margin: 5px;
+transition: 0.5s;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+}
+.btn:hover {
+background-color: #fcbf49;
+color: #f77f00;
+}
+footer {
+background-color: #003049;
+color: #f77f00;
+text-align: center;
+padding: 20px;
+font-size: 20px;
+position: relative;
+bottom: 0;
+width: 100%;
+}
+.footer_logo {
+width: 50px;
+border: 5px solid #f77f00;
+}
+.footer_logo:hover {
+border: 5px solid #fcbf49;
+}
+.icon {
+width: 20px;
+vertical-align: middle;
+}
 
-        /* Topnav styling */
-        .topnav {
-            background-color: #333;
-            overflow: hidden;
-        }
-        .topnav a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-        .active {
-            background-color: #f77f00;
-            color: white;
-        }
-        .topnav a:hover, .dropdown:hover .dropbtn {
-            background-color: #555;
-            color: white;
-        }
+/* Topnav styling */
+.topnav {
+background-color: #333;
+overflow: hidden;
+}
+.topnav a {
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+.active {
+background-color: #f77f00;
+color: white;
+}
+.topnav a:hover, .dropdown:hover .dropbtn {
+background-color: #555;
+color: white;
+}
