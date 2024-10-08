@@ -108,7 +108,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${businessName}</title>
     <meta name="keywords" content="${keywords.split(',').join(', ')}">
-    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        body {
+            background-color: #f9f9f9; /* Light gray background */
+            color: #333; /* Dark gray text color */
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0; /* Remove default margin */
+            padding: 20px; /* Add some padding */
+        }
+
+        .jumbotron {
+            background-color: #f0c1c1; /* Pastel red background */
+            padding: 20px; /* Add padding */
+            border-radius: 8px; /* Rounded corners */
+            text-align: center; /* Center align text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        footer {
+            background-color: #c1e1f0; /* Pastel blue background */
+            padding: 10px; /* Add padding */
+            border-radius: 5px; /* Rounded corners */
+            text-align: center; /* Center align text */
+            margin-top: 20px; /* Space from above */
+        }
+
+        a {
+            color: #5d92d4; /* Light blue link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        a:hover {
+            color: #f0a1a1; /* Light coral on hover */
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+        .icon {
+            width: 50px; /* Set width to 50 pixels */
+            height: 50px; /* Set height to 50 pixels */
+            object-fit: contain; /* Ensure the icon fits within the dimensions without distortion */
+        }
+
+        .logo {
+            max-width: 100%; /* Responsive logo */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+    
 </head>
 <body>
     <div class="jumbotron">
