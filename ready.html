@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ready-Set-Go Web Pages</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+    <link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+    <link href="jQueryAssets/jquery.ui.accordion.min.css" rel="stylesheet" type="text/css">
+    <script src="jQueryAssets/jquery-1.11.1.min.js"></script> 
+    <script src="jQueryAssets/jquery.ui-1.10.4.accordion.min.js"></script>
 </head>
 <body>
 
@@ -12,11 +21,15 @@
   <a href="index.html" class="active">Home</a>
   <a href="websites.html">Websites</a>
   <a href="pi.html">Photoshop &amp; Illustrator</a>
-  <a href="ecom.html">E-Commerce</a>    
+  <a href="ecom.html">E-Commerce</a>
+<a href="ready.html" class="active">Ready Set Go Websites!</a>
 </div> 
     
-<div class="container">
-    <div class="jumbotron">
+<section>
+  <div class="jumbotron text-center mt-2 col-10 offset-1 offset-xl-2 col-xl-8">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 offset-xl-0 col-xl-4">
         <h1>Ready-Set-Go Web Pages</h1>
         <div class="form-group">
             <label for="businessName">Business Name:</label>
@@ -47,8 +60,11 @@
             <input type="url" id="logo">
         </div>
         <button class="btn" onclick="generatePage()">Generate Page</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
 <footer class="text-center">
     <div class="container">
