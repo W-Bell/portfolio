@@ -71,3 +71,18 @@ footer {
 	-webkit-animation: tracking-in-contract-bck-bottom 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	        animation: tracking-in-contract-bck-bottom 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
+
+
+form {
+  max-width: 600px; /* Adjust the max-width as needed */
+  margin: auto; /* Centers the form */
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* Spacing between fields */
+}
+
+input.form-control,
+textarea.form-control {
+  width: 100%; /* Ensures all fields take full width of their container */
+}
