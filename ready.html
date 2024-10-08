@@ -4,36 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ready-Set-Go Web Pages</title>
-    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to your existing CSS -->
+    <style>
+        body {
+            background-color: #003049;
+            color: #f77f00;
+            min-width: 550px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .jumbotron {
+            background-color: #eae2b7;
+            color: #003049;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #f77f00;	
+            color: #003049;
+            margin: 5px;
+            transition: 0.5s;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #fcbf49;
+            color: #f77f00;
+        }
+
+        .form-container {
+            padding: 20px; /* Adds padding around the form */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Space between each form field */
+        }
+
+        label {
+            display: block; /* Make labels block to occupy full width */
+            margin-bottom: 5px; /* Space below the label */
+        }
+
+        input[type="text"], input[type="file"], textarea {
+            width: calc(100% - 20px); /* Full width minus padding */
+            padding: 10px; /* Inner padding for inputs */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            font-size: 20px;
+            text-align: center; /* Center the footer content */
+            margin-top: 20px;
+        }
+
+        .footer_logo {
+            width: 50px; 
+            border: 5px solid #f77f00;
+        }
+
+        .footer_logo:hover {
+            width: 50px; 
+            border: 5px solid #fcbf49;
+        }
+
+        .social-icons {
+            margin-top: 10px; /* Space above the icons */
+        }
+    </style>
 </head>
 <body>
-    <div class="jumbotron">
+    <div class="container form-container">
         <h1>Create Your Web Page</h1>
         <form id="businessForm">
-            <label for="businessName">Business Name:</label>
-            <input type="text" id="businessName" required> <br>
-
-            <label for="businessType">Business Type:</label>
-            <input type="text" id="businessType" required> <br>
-
-            <label for="location">Location:</label>
-            <input type="text" id="location" required> <br>
-
-            <label for="services">Services:</label>
-            <textarea id="services" required></textarea> <br>
-
-            <label for="contactInfo">Contact Info:</label>
-            <input type="text" id="contactInfo" required> <br>
-
-            <label for="keywords">Keywords (comma-separated):</label>
-            <input type="text" id="keywords"> <br>
-
-            <button type="button" id="downloadButton">Download Your Web Page</button> <br>
+            <div class="form-group">
+                <label for="businessName">Business Name:</label>
+                <input type="text" id="businessName" required>
+            </div>
+            <div class="form-group">
+                <label for="businessType">Business Type:</label>
+                <input type="text" id="businessType" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" required>
+            </div>
+            <div class="form-group">
+                <label for="services">Services:</label>
+                <textarea id="services" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contactInfo">Contact Info:</label>
+                <input type="text" id="contactInfo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="facebookLink">Facebook Link:</label>
+                <input type="text" id="facebookLink">
+            </div>
+            <div class="form-group">
+                <label for="keywords">Keywords (comma-separated):</label>
+                <input type="text" id="keywords">
+            </div>
+            <div class="form-group">
+                <label for="logoUpload">Upload Logo:</label>
+                <input type="file" id="logoUpload" accept="image/*">
+            </div>
+            <button type="button" class="btn" id="downloadButton">Download Your Web Page</button>
         </form>
     </div>
 
+    <footer>
+        <div class="social-icons">
+            <a href="#" id="facebookIcon" style="display:none;">
+                <img src="facebook-icon.png" class="footer_logo" alt="Facebook" />
+            </a>
+            <a href="mailto:" id="emailIcon" style="display:none;">
+                <img src="email-icon.png" class="footer_logo" alt="Email" />
+            </a>
+        </div>
+        <p>&copy; <span id="footerYear"></span> Your Business Name. All rights reserved.</p>
+    </footer>
+
     <script>
-        function generateHTML(businessName, businessType, location, services, contactInfo, keywords) {
+        function generateHTML(businessName, businessType, location, services, contactInfo, email, facebookLink, keywords, logoData) {
             const htmlContent = `
             <!DOCTYPE html>
             <html lang="en">
@@ -51,17 +152,28 @@
                         font-family: Arial, sans-serif;
                         margin: 0;
                         padding: 0;
-                        text-align: center;
                     }
                     .jumbotron {
                         background-color: #eae2b7;
                         color: #003049;
                         padding: 20px;
                         text-align: center;
-
+                    }
                     footer {
                         font-size: 20px;
                         text-align: center;
+                        margin-top: 20px;
+                    }
+                    .footer_logo {
+                        width: 50px; 
+                        border: 5px solid #f77f00;
+                    }
+                    .footer_logo:hover {
+                        width: 50px; 
+                        border: 5px solid #fcbf49;
+                    }
+                    .social-icons {
+                        margin-top: 10px; /* Space above the icons */
                     }
                 </style>
             </head>
@@ -69,6 +181,7 @@
                 <header>
                     <h1 class="jumbotron">Welcome to ${businessName}</h1>
                     <p>Providing professional ${businessType} services in ${location}</p>
+                    ${logoData ? `<img src="${logoData}" alt="${businessName} Logo" style="max-width: 200px; display: block; margin: 0 auto;">` : ''}
                 </header>
                 <section id="services">
                     <h2>Our Services</h2>
@@ -77,9 +190,13 @@
                 <section id="contact">
                     <h2>Contact Us</h2>
                     <p>${contactInfo}</p>
+                    <p>Email: ${email}</p>
+                    ${facebookLink ? `<p>Facebook: <a href="${facebookLink}">${facebookLink}</a></p>` : ''}
                 </section>
                 <footer>
                     <p>&copy; ${new Date().getFullYear()} ${businessName}. All rights reserved.</p>
+                    ${facebookLink ? `<a href="${facebookLink}"><img src="facebook-icon.png" class="footer_logo" alt="Facebook"></a>` : ''}
+                    ${email ? `<a href="mailto:${email}"><img src="email-icon.png" class="footer_logo" alt="Email"></a>` : ''}
                 </footer>
             </body>
             </html>
@@ -102,10 +219,18 @@
             const location = document.getElementById("location").value;
             const services = document.getElementById("services").value;
             const contactInfo = document.getElementById("contactInfo").value;
+            const email = document.getElementById("email").value;
+            const facebookLink = document.getElementById("facebookLink").value;
             const keywords = document.getElementById("keywords").value;
+            const logoUpload = document.getElementById("logoUpload");
 
-            generateHTML(businessName, businessType, location, services, contactInfo, keywords);
-        });
-    </script>
-</body>
-</html>
+            let logoData = '';
+            if (logoUpload.files.length > 0) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    logoData = event.target.result;
+                    generateHTML(businessName, businessType, location, services, contactInfo, email, facebookLink, keywords, logoData);
+                };
+                reader.readAsDataURL(logoUpload.files[0]);
+            } else {
+                generateHTML(businessName, businessType, location,
