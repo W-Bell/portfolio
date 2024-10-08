@@ -75,6 +75,7 @@ footer {
 
 form {
   max-width: 600px; /* Adjust the max-width as needed */
+  mid-width: 300px;
   margin: auto; /* Centers the form */
 }
 
