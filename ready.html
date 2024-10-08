@@ -59,8 +59,8 @@
                     <input type="text" id="keywords">
                 </div>
                 <div class="form-group">
-                    <label for="logo">Upload Logo:</label><br>
-                    <input type="file" id="logo" accept="image/*">
+                    <label for="logo">Logo URL:</label><br>
+                    <input type="url" id="logo" placeholder="Enter the URL to your logo image" >
                 </div>
                 <button class="btn" onclick="generatePage()">Generate Page</button>
                 <div class="form-group">
@@ -86,22 +86,18 @@
 </footer>
 
 <script>
-    function generatePage() {
-        const businessName = document.getElementById('businessName').value;
-        const businessType = document.getElementById('businessType').value;
-        const location = document.getElementById('location').value;
-        const email = document.getElementById('email').value;
-        const facebook = document.getElementById('facebook').value;
-        const keywords = document.getElementById('keywords').value;
-        const logoInput = document.getElementById('logo');
+function generatePage() {
+    const businessName = document.getElementById('businessName').value;
+    const businessType = document.getElementById('businessType').value;
+    const location = document.getElementById('location').value;
+    const email = document.getElementById('email').value;
+    const facebook = document.getElementById('facebook').value;
+    const keywords = document.getElementById('keywords').value;
+    
+    // Get the logo URL directly from the input
+    const logoUrl = document.getElementById('logo').value;
 
-        // Check if a file is uploaded
-        if (logoInput.files.length === 0) {
-            alert("Please upload a logo.");
-            return;
-        }
-
-        const newPageContent = `
+    const newPageContent = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
