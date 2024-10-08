@@ -1,34 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wes Bell | Portfolio</title>
-<!-- Bootstrap -->
-<link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="/images/favicon.png">
-<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
-<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
-<link href="jQueryAssets/jquery.ui.accordion.min.css" rel="stylesheet" type="text/css">
-<script src="jQueryAssets/jquery-1.11.1.min.js"></script> 
-<script src="jQueryAssets/jquery.ui-1.10.4.accordion.min.js"></script>
-<script src="js/ready.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ready-Set-Go Web Pages: Quickly create and download a web template for your business.">
+    <title>Ready-Set-Go Web Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #download-section {
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('business-info-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Collect the form data
+                const businessName = document.getElementById('business-name').value;
+                const businessType = document.getElementById('business-type').value;
+                const location = document.getElementById('location').value;
+                const services = document.getElementById('services').value;
+                const contactInfo = document.getElementById('contact-info').value;
+
+                // Generate HTML content for the template
+                const htmlContent = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${businessName} - ${businessType}</title>
+                    <meta name="description" content="${businessType} located in ${location}. Services include ${services}.">
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+                        header { background-color: #f5f5f5; padding: 20px; text-align: center; }
+                        section { padding: 20px; }
+                    </style>
+                </head>
+                <body>
+                    <header>
+                        <h1>Welcome to ${businessName}</h1>
+                        <p>Providing professional ${businessType} services in ${location}</p>
+                    </header>
+                    <section id="services">
+                        <h2>Our Services</h2>
+                        <p>${services}</p>
+                    </section>
+                    <section id="contact">
+                        <h2>Contact Us</h2>
+                        <p>${contactInfo}</p>
+                    </section>
+                </body>
+                </html>`;
+
+                // Create a Blob from the HTML content
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+
+                // Show the download link
+                const downloadLink = document.getElementById('download-link');
+                downloadLink.href = url;
+                downloadLink.download = "your-business-template.html";
+                document.getElementById('download-section').style.display = 'block';
+            });
+        });
+    </script>
 </head>
 <body>
-
- <div class="topnav" id="myTopnav">  
-  <a href="index.html" class="active">Home</a>
-  <a href="websites.html">Websites</a>
-  <a href="pi.html">Photoshop &amp; Illustrator</a>
-   <a href="ecom.html">E-Commerce</a> 
-  
-  
-</div> 
-  
-<div class="container"> 
-<section>
     <header>
         <h1>Ready-Set-Go Web Pages</h1>
         <p>Get Your Business Online in Minutes</p>
@@ -56,75 +138,15 @@
         </form>
     </section>
 
-    <section id="download-section" style="display: none;">
+    <section id="download-section">
         <h2>Your Web Page is Ready!</h2>
-        <a id="download-link" href="#" download="your-business-template.zip">Download Your Web Page</a>
+        <a id="download-link" href="#">Download Your Web Page</a>
     </section>
 
-	
     <section id="tip-jar-section">
         <h2>Tip Jar</h2>
         <p>If you found this tool helpful, consider leaving a tip! We also offer domain hosting services and custom web development.</p>
         <a href="https://paypal.me/yourpaypal" target="_blank">Leave a Tip</a>
     </section>
-</section>
-</div>	
-<section>
-  <div class="container">
-	  <div class="text-center col-10 offset-1 col-xl-4 offset-xl-0">
-      <h4 class="text-center">What I am open to.</h4><br>
-      <p class="text-center">I am open to freelance work.
-		  I currently work full time in a tech related field.<br>I often am limited on time but would be glad to speak with you about your project.</p>
-	<p class="text-center">  </p>
-		  <p class="text-center"></p>
-<p class="text-center">&nbsp;</p>
-      </div>
-      <div class="col-12 col-md-12 offset-xl-0 col-xl-4">
-        <h3 class="text-center">GET IN TOUCH</h3>
-        <address class="text-center">
-        <strong>Wes Bell</strong><br>
-        <p>Altamont IL.</p>
-        <a href = "mailto: wesbell78@gmail.com">
-        <button type="button" class="btn btn-info">Email: wesbell78@gmail.com</button>
-        </a><br>
-        <a href="tel:">
-        <!-- <button type="button" class="btn btn-info">Phone: (217) 218-0314</button>  -->
-        </a>
-        </address>
-      </div>
-    </div>
-  </div>
-</section>
-    
-
-
-  
-
-
-<div class="section" id="contact">
-  <div class="container">
-    <div class="row">
-
-    </div>
-  </div>
-</div>
-<hr>
-<footer class="text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <p class="tracking-in-contract-bck-bottom">Created by Wes Bell. &nbsp;&nbsp;  <a href="index.html"><img src="images/favicon.png" alt="Bell Logo" class="footer_logo"></a></p>        
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="js/jquery-3.4.1.min.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="js/popper.min.js"></script> 
-<script src="js/bootstrap-4.4.1.js"></script> 
-<script type="text/javascript">
-
-</script>
 </body>
 </html>
