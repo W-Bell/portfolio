@@ -3,168 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ready-Set-Go Web Pages: Quickly create and download a web template for your business.">
-    <title>Ready-Set-Go Web Pages</title>
+    <title>${businessName} - ${businessType}</title>
+    <meta name="description" content="${businessType} located in ${location}. Services include ${services}.">
+    <meta name="keywords" content="${keywords}">
     <style>
         body {
+            background-color: #003049;
+            color: #f77f00;
+            min-width: 550px;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-
-        header {
-            background-color: #f5f5f5;
+        
+        .jumbotron {
+            background-color: #eae2b7;
+            color: #003049;
             padding: 20px;
             text-align: center;
         }
-
-        #form-section {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        #form-wrapper {
-            width: 80%;
-            max-width: 1000px;
-        }
-
-        section {
-            padding: 20px;
-        }
-
-        h2 {
-            margin-top: 0;
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-        }
-
-        button {
+        
+        .btn {
+            background-color: #f77f00;    
+            color: #003049;
+            margin: 5px;
+            transition: 0.5s;
             padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
             border: none;
             cursor: pointer;
         }
-
-        button:hover {
-            background-color: #0056b3;
+        
+        .btn:hover {
+            background-color: #fcbf49;
+            color: #f77f00;
+        }
+        
+        .ps_il {
+            background-color: #eae2b7;
+            color: #003049;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
         }
 
-        #download-section {
-            display: none;
+        .photoillus {
+            color: #003049;
+            background: #eae2b7;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .active {
+            background-color: #f77f00;
+            color: white;
+        }
+
+        .topnav a:hover, .dropdown:hover .dropbtn {
+            background-color: #555;
+            color: white;
+        }
+
+        footer {
+            font-size: 20px;
+        }
+
+        .footer_logo {
+            width: 50px; 
+            border: 5px solid #f77f00;
+        }
+
+        .footer_logo:hover {
+            width: 50px; 
+            border: 5px solid #fcbf49;
+        }
+
+        .tracking-in-contract-bck-bottom {
+            -webkit-animation: tracking-in-contract-bck-bottom 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+                    animation: tracking-in-contract-bck-bottom 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('business-info-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                // Collect the form data
-                const businessName = document.getElementById('business-name').value;
-                const businessType = document.getElementById('business-type').value;
-                const location = document.getElementById('location').value;
-                const services = document.getElementById('services').value;
-                const contactInfo = document.getElementById('contact-info').value;
-                const keywords = document.getElementById('keywords').value;
-
-                // Generate HTML content for the template
-                const htmlContent = `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>${businessName} - ${businessType}</title>
-                    <meta name="description" content="${businessType} located in ${location}. Services include ${services}.">
-                    <meta name="keywords" content="${keywords}">
-                    <style>
-                        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-                        header { background-color: #f5f5f5; padding: 20px; text-align: center; }
-                        section { padding: 20px; }
-                    </style>
-                </head>
-                <body>
-                    <header>
-                        <h1>Welcome to ${businessName}</h1>
-                        <p>Providing professional ${businessType} services in ${location}</p>
-                    </header>
-                    <section id="services">
-                        <h2>Our Services</h2>
-                        <p>${services}</p>
-                    </section>
-                    <section id="contact">
-                        <h2>Contact Us</h2>
-                        <p>${contactInfo}</p>
-                    </section>
-                </body>
-                </html>`;
-
-                // Create a Blob from the HTML content
-                const blob = new Blob([htmlContent], { type: 'text/html' });
-                const url = URL.createObjectURL(blob);
-
-                // Show the download link
-                const downloadLink = document.getElementById('download-link');
-                downloadLink.href = url;
-                downloadLink.download = "your-business-template.html";
-                document.getElementById('download-section').style.display = 'block';
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
-        <h1>Ready-Set-Go Web Pages</h1>
-        <p>Get Your Business Online in Minutes</p>
+        <h1 class="jumbotron">Welcome to ${businessName}</h1>
+        <p>Providing professional ${businessType} services in ${location}</p>
     </header>
-
-    <section id="form-section">
-        <div id="form-wrapper">
-            <h2>Create Your Business Page</h2>
-            <form id="business-info-form">
-                <label for="business-name">Business Name:</label>
-                <input type="text" id="business-name" name="business-name" required>
-
-                <label for="business-type">Type of Business:</label>
-                <input type="text" id="business-type" name="business-type" required>
-
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" required>
-
-                <label for="services">Services Offered:</label>
-                <textarea id="services" name="services" required></textarea>
-
-                <label for="contact-info">Contact Info:</label>
-                <input type="text" id="contact-info" name="contact-info" required>
-
-                <label for="keywords">Keywords (for SEO):</label>
-                <input type="text" id="keywords" name="keywords" required>
-
-                <button type="submit">Generate Web Page</button>
-            </form>
-        </div>
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>${services}</p>
     </section>
-
-    <section id="download-section">
-        <h2>Your Web Page is Ready!</h2>
-        <a id="download-link" href="#">Download Your Web Page</a>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>${contactInfo}</p>
     </section>
-
-    <section id="tip-jar-section">
-        <h2>Tip Jar</h2>
-        <p>If you found this tool helpful, consider leaving a tip! We also offer domain hosting services and custom web development.</p>
-        <a href="https://paypal.me/yourpaypal" target="_blank">Leave a Tip</a>
-    </section>
+    <footer>
+        <p>&copy; ${new Date().getFullYear()} ${businessName}. All rights reserved.</p>
+    </footer>
 </body>
 </html>
