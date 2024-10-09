@@ -60,6 +60,10 @@
                     <label for="keywords">Keywords (for SEO, separated by commas):</label><br>
                     <input type="text" id="keywords">
                 </div>
+                <div class="form-group">
+                    <label for="summary">Type a short summary about your business and what you offer.</label><br>
+                    <input type="text" id="summary">
+                </div>
 
 
                 <div class="form-group">
@@ -112,6 +116,7 @@ function generatePage() {
     const email = document.getElementById('email').value;
     const facebook = document.getElementById('facebook').value;
     const keywords = document.getElementById('keywords').value;
+    const keywords = document.getElementById('summary').value;
     const backgroundImage = document.querySelector('input[name="backgroundImage"]:checked').value;
 
   
@@ -142,8 +147,8 @@ function generatePage() {
         .jumbotron {
             background-color: #eae2b7;
             color: #003049;
-            width: 80%;
-            height: 600px;
+            width: 100%;
+            height: 800px;
             border-radius: 8px; /* Rounded corners */
             text-align: center; /* Center align text */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
@@ -181,6 +186,7 @@ function generatePage() {
         <h1>Welcome to ${businessName}</h1>
         <p>We specialize in ${businessType}.</p>
         <p>Located in ${location}</p>
+        <p>Located in ${summary}</p>
     </div>
     <footer>
         <a href="mailto:${email}"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email"></a>
