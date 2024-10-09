@@ -143,12 +143,12 @@ function generatePage() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${businessName}</title>
-    <meta name="keywords" content="${keywords.split(',').join(', ')}">
+    <title>Generated Landing Page</title>
+    <meta name="keywords" content="your, keywords, here">
     
     <style>
         body {
-            background-image: ${backgroundImage};
+            background-image: url('https://example.com/background.jpg'); /* Replace with the selected background */
             background-size: cover;
             background-repeat: no-repeat;
             color: #f77f00;
@@ -164,12 +164,15 @@ function generatePage() {
             grid-template-rows: 1fr 1fr;
             gap: 10px;
             height: 100vh;
+            max-width: 80%; /* Reduce the size of the quadrants */
+            margin: 0 auto;
         }
 
         .business-info, .about, .contact-info, .image-section {
-            border: 1px solid #fff;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow */
+            border-radius: 8px; /* Slightly rounded corners */
         }
 
         .business-info {
@@ -197,42 +200,45 @@ function generatePage() {
             max-width: 100%;
             height: auto;
         }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* Stack quadrants into a single column */
+                grid-template-rows: auto; /* Adjust rows to auto-fit content */
+            }
+            .container {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding: 10px; /* Less padding on mobile for more space */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="business-info">
-            <h1>${businessName}</h1>
-            <p>Type: ${businessType}</p>
-            <p>Location: ${location}</p>
+            <h1>Business Name</h1>
+            <p>Type: Your Business Type</p>
+            <p>Location: Your Business Location</p>
         </div>
         <div class="about">
             <h2>About Us</h2>
-            <p>${summary}</p>
+            <p>Short summary about your business goes here.</p>
         </div>
         <div class="contact-info">
             <h2>Contact</h2>
-            <p>Email: ${email}</p>
-            <p>Phone: ${phone}</p>
-            ${facebook ? `<p>Facebook: <a href="${facebook}">${facebook}</a></p>` : ''}
+            <p>Email: your-email@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Facebook: <a href="https://facebook.com" target="_blank">Facebook Link</a></p>
         </div>
         <div class="image-section">
-            <img src="https://example.com/logo.png" alt="${businessName} logo">
+            <img src="https://example.com/logo.png" alt="Your Business Logo">
         </div>
     </div>
-</body>
-</html>
-    `;
-    
-    const newBlob = new Blob([newPageContent], { type: 'text/html' });
-    const newUrl = URL.createObjectURL(newBlob);
-
-    const link = document.createElement('a');
-    link.href = newUrl;
-    link.download = 'landing_page.html';
-    link.click();
-}
-</script>
-
 </body>
 </html>
