@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,62 +29,81 @@
   <div class="jumbotron text-center mt-2 col-10 offset-1 offset-xl-2 col-xl-8">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-md-8">
+        <!-- Two Centered Columns -->
+        <div class="col-12 col-md-6">
           <form>
             <div class="form-group">
                 <h1>Ready-Set-Go Web Pages</h1>
                 <p>Create a landing page for your business by entering your info below.</p>
+                
+                <!-- Business Name -->
                 <div class="form-group">
-                    <label for="businessName">Business Name:</label><br>
-                    <input type="text" id="businessName" required>
-                </div>
-                <div class="form-group">
-                    <label for="businessType">Type of Business:</label><br>
-                    <input type="text" id="businessType" required>
-                </div>
-                <div class="form-group">
-                    <label for="location">Location:</label><br>
-                    <input type="text" id="location" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="facebook">Facebook Link:</label><br>
-                    <input type="url" id="facebook">
-                </div>
-                <div class="form-group">
-                    <label for="keywords">Keywords (for SEO, separated by commas):</label><br>
-                    <input type="text" id="keywords">
-                </div>
-                <div class="form-group">
-                    <label for="summary">Type a short summary about your business and what you offer.</label><br>
-                    <input type="text" id="summary">
+                    <label for="businessName">Business Name:</label>
+                    <input type="text" id="businessName" required class="form-control">
                 </div>
 
+                <!-- Business Type -->
+                <div class="form-group">
+                    <label for="businessType">Type of Business:</label>
+                    <input type="text" id="businessType" required class="form-control">
+                </div>
 
+                <!-- Location -->
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" required class="form-control">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required class="form-control">
+                </div>
+
+                <!-- Contact Phone Number -->
+                <div class="form-group">
+                    <label for="phone">Contact Phone Number:</label>
+                    <input type="tel" id="phone" required class="form-control">
+                </div>
+
+                <!-- Facebook Link -->
+                <div class="form-group">
+                    <label for="facebook">Facebook Link:</label>
+                    <input type="url" id="facebook" class="form-control">
+                </div>
+
+                <!-- Keywords -->
+                <div class="form-group">
+                    <label for="keywords">Keywords (for SEO, separated by commas):</label>
+                    <input type="text" id="keywords" class="form-control">
+                </div>
+
+                <!-- Summary -->
+                <div class="form-group">
+                    <label for="summary">Short summary about your business:</label>
+                    <input type="text" id="summary" class="form-control">
+                </div>
+
+                <!-- Background Image Selection -->
                 <div class="form-group">
                     <label for="backgroundImage">Choose a Background Image:</label><br>
                     <div>
                         <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg')" id="bg1" checked>
-                        <label for="bg1">Mechanical      <img src="https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg" alt="Background 1" style="width: 100px; height: auto;"></label><br>
+                        <label for="bg1">Mechanical <img src="https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg" alt="Background 1" style="width: 100px; height: auto;"></label><br>
                         
                         <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" id="bg2">
-                        <label for="bg2">Professional      <img src="https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Background 2" style="width: 100px; height: auto;"></label><br>
+                        <label for="bg2">Professional <img src="https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Background 2" style="width: 100px; height: auto;"></label><br>
                         
                         <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" id="bg3">
-                        <label for="bg3">Outdoor      <img src="https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Background 3" style="width: 100px; height: auto;"></label><br>
+                        <label for="bg3">Outdoor <img src="https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Background 3" style="width: 100px; height: auto;"></label><br>
 
                         <input type="radio" name="backgroundImage" value="" id="bg4">
                         <label for="bg4">None</label><br>
                     </div>
                 </div>
 
-
-                
                 <button class="btn" onclick="generatePage()">Generate Page</button>
-                <div class="form-group">
+            </div>
           </form>
         </div>
       </div>
@@ -114,12 +131,11 @@ function generatePage() {
     const businessType = document.getElementById('businessType').value;
     const location = document.getElementById('location').value;
     const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
     const facebook = document.getElementById('facebook').value;
     const keywords = document.getElementById('keywords').value;
     const summary = document.getElementById('summary').value;
     const backgroundImage = document.querySelector('input[name="backgroundImage"]:checked').value;
-
-  
 
     const newPageContent = `
 <!DOCTYPE html>
@@ -131,74 +147,89 @@ function generatePage() {
     <meta name="keywords" content="${keywords.split(',').join(', ')}">
     
     <style>
-
         body {
             background-image: ${backgroundImage};
-            background-size: cover; /* Cover the entire page */
-            background-repeat: no-repeat; /* Prevent repeating */
+            background-size: cover;
+            background-repeat: no-repeat;
             color: #f77f00;
             background-color: #003049;
-            font-family: Arial, sans-serif; 
-            margin: 0; 
+            font-family: Arial, sans-serif;
+            margin: 0;
             padding: 20px;
-        } 
-       
-
-        .jumbotron {
-            background-color: #eae2b7;
-            color: #003049;
-            width: 100%;
-            height: 600px;
-            border-radius: 8px; /* Rounded corners */
-            text-align: center; /* Center align text */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-
         }
 
-        footer {
-            background-color: #eae2b7;
-            border-radius: 5px; /* Rounded corners */
-            text-align: center; /* Center align text */
-            margin-top: 20px; /* Space from above */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            height: 100vh;
         }
 
-        a {
-            color: #5d92d4; /* Light blue link color */
-            text-decoration: none; /* Remove underline */
+        .business-info, .about, .contact-info, .image-section {
+            border: 1px solid #fff;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
         }
 
-        a:hover {
-            color: #f0a1a1; /* Light coral on hover */
-            text-decoration: underline; /* Add underline on hover */
+        .business-info {
+            grid-column: 1;
+            grid-row: 1;
         }
 
-        .icon {
-            width: 50px; /* Set width to 50 pixels */
-            height: 50px; /* Set height to 50 pixels */
-            object-fit: contain; /* Ensure the icon fits within the dimensions without distortion */
+        .about {
+            grid-column: 1;
+            grid-row: 2;
         }
 
+        .contact-info {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .image-section {
+            grid-column: 2;
+            grid-row: 2;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
-    
 </head>
 <body>
-    <div class="jumbotron">
-        <h1>Welcome to ${businessName}</h1><br>
-        <p>We specialize in ${businessType}.</p><br>
-        <p>Located in ${location}</p><br>
-        <p>${summary}</p><br>
+    <div class="container">
+        <div class="business-info">
+            <h1>${businessName}</h1>
+            <p>Type: ${businessType}</p>
+            <p>Location: ${location}</p>
+        </div>
+        <div class="about">
+            <h2>About Us</h2>
+            <p>${summary}</p>
+        </div>
+        <div class="contact-info">
+            <h2>Contact</h2>
+            <p>Email: ${email}</p>
+            <p>Phone: ${phone}</p>
+            ${facebook ? `<p>Facebook: <a href="${facebook}">${facebook}</a></p>` : ''}
+        </div>
+        <div class="image-section">
+            <img src="https://example.com/logo.png" alt="${businessName} logo">
+        </div>
     </div>
-    <footer>
-        <a href="mailto:${email}"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email"></a>
-        <a href="${facebook}"><img class="icon" src="https://cdn-icons-png.flaticon.com/256/124/124010.png" alt="Facebook"></a>
-    </footer>
 </body>
-</html>`;
+</html>
+    `;
+    
+    const newBlob = new Blob([newPageContent], { type: 'text/html' });
+    const newUrl = URL.createObjectURL(newBlob);
 
-    const blob = new Blob([newPageContent], { type: 'text/html' });
     const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `${businessName.replace(/\s+/g, '_')}.html`;
+    link.href = newUrl;
+    link.download = 'landing_page.html';
     link.click();
 }
 </script>
