@@ -94,23 +94,5 @@ textarea.form-control {
     object-fit: contain; /* Ensures the icon fits within the dimensions without distortion */
 }
 
-/* Styles for the form container */
-.form-container {
-    display: flex; /* Enable flexbox */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    gap: 20px; /* Space between columns */
-}
 
-/* Styles for the form fields */
-.form-group {
-    flex: 1 1 calc(50% - 20px); /* Make each item take 50% width minus the gap */
-    min-width: 250px; /* Set a minimum width for form fields */
-}
-
-/* Media query for screens 500px wide or larger */
-@media (min-width: 500px) {
-    .form-container {
-        flex-direction: row; /* Arrange items in rows */
-    }
-}
 
