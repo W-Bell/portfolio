@@ -60,10 +60,24 @@
                     <label for="keywords">Keywords (for SEO, separated by commas):</label><br>
                     <input type="text" id="keywords">
                 </div>
+
+
                 <div class="form-group">
-                    <label for="logoUrl">Logo URL:</label><br>
-                    <input type="url" id="logoUrl" placeholder="Enter the URL to your logo image">
+                    <label for="backgroundImage">Choose a Background Image:</label><br>
+                    <div>
+                        <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg')" id="bg1" checked>
+                        <label for="bg1">Mechanical<img src="https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg" alt="Background 1" style="width: 100px; height: auto;"></label><br>
+                        
+                        <input type="radio" name="backgroundImage" value="url('images/bg2.jpg')" id="bg2">
+                        <label for="bg2"><img src="images/bg2.jpg" alt="Background 2" style="width: 100px; height: auto;"></label>
+                        
+                        <input type="radio" name="backgroundImage" value="url('images/bg3.jpg')" id="bg3">
+                        <label for="bg3"><img src="images/bg3.jpg" alt="Background 3" style="width: 100px; height: auto;"></label>
+                    </div>
                 </div>
+
+
+                
                 <button class="btn" onclick="generatePage()">Generate Page</button>
                 <div class="form-group">
           </form>
@@ -109,6 +123,14 @@ function generatePage() {
     <meta name="keywords" content="${keywords.split(',').join(', ')}">
     
     <style>
+        background-image: ${backgroundImage};
+            background-size: cover; /* Cover the entire page */
+            background-repeat: no-repeat; /* Prevent repeating */
+            color: #f77f00;
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px;
+       
         body {
             background-color: #003049;
             color: #f77f00;
