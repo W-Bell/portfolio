@@ -1,4 +1,7 @@
-This is a back up of a status of the page i am happy with
+
+backup
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,9 +64,30 @@ This is a back up of a status of the page i am happy with
                     <input type="text" id="keywords">
                 </div>
                 <div class="form-group">
-                    <label for="logoUrl">Logo URL:</label><br>
-                    <input type="url" id="logoUrl" placeholder="Enter the URL to your logo image">
+                    <label for="summary">Type a short summary about your business and what you offer.</label><br>
+                    <input type="text" id="summary">
                 </div>
+
+
+                <div class="form-group">
+                    <label for="backgroundImage">Choose a Background Image:</label><br>
+                    <div>
+                        <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg')" id="bg1" checked>
+                        <label for="bg1">Mechanical      <img src="https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg" alt="Background 1" style="width: 100px; height: auto;"></label><br>
+                        
+                        <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" id="bg2">
+                        <label for="bg2">Professional      <img src="https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Background 2" style="width: 100px; height: auto;"></label><br>
+                        
+                        <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" id="bg3">
+                        <label for="bg3">Outdoor      <img src="https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Background 3" style="width: 100px; height: auto;"></label><br>
+
+                        <input type="radio" name="backgroundImage" value="" id="bg4">
+                        <label for="bg4">None</label><br>
+                    </div>
+                </div>
+
+
+                
                 <button class="btn" onclick="generatePage()">Generate Page</button>
                 <div class="form-group">
           </form>
@@ -95,9 +119,10 @@ function generatePage() {
     const email = document.getElementById('email').value;
     const facebook = document.getElementById('facebook').value;
     const keywords = document.getElementById('keywords').value;
-    
-    // Get the logo URL directly from the input
-    const logoUrl = document.getElementById('logoUrl').value;
+    const summary = document.getElementById('summary').value;
+    const backgroundImage = document.querySelector('input[name="backgroundImage"]:checked').value;
+
+  
 
     const newPageContent = `
 <!DOCTYPE html>
@@ -109,25 +134,32 @@ function generatePage() {
     <meta name="keywords" content="${keywords.split(',').join(', ')}">
     
     <style>
+
         body {
-            background-color: #003049;
+            background-image: ${backgroundImage};
+            background-size: cover; /* Cover the entire page */
+            background-repeat: no-repeat; /* Prevent repeating */
             color: #f77f00;
+            background-color: #003049;
             font-family: Arial, sans-serif; 
             margin: 0; 
             padding: 20px;
-        }
+        } 
+       
 
         .jumbotron {
-            background-color: #eae2b7
-            padding: 20px; /* Add padding */
+            background-color: #eae2b7;
+            color: #003049;
+            width: 100%;
+            height: 600px;
             border-radius: 8px; /* Rounded corners */
             text-align: center; /* Center align text */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+
         }
 
         footer {
-            background-color: #c1e1f0; /* Pastel blue background */
-            padding: 10px; /* Add padding */
+            background-color: #eae2b7;
             border-radius: 5px; /* Rounded corners */
             text-align: center; /* Center align text */
             margin-top: 20px; /* Space from above */
@@ -149,19 +181,15 @@ function generatePage() {
             object-fit: contain; /* Ensure the icon fits within the dimensions without distortion */
         }
 
-        .logoUrl {
-            max-width: 50%; /* Responsive logo */
-            height: auto; /* Maintain aspect ratio */
-        }
     </style>
     
 </head>
 <body>
     <div class="jumbotron">
-        <h1>Welcome to ${businessName}</h1>
-        <p>We specialize in ${businessType}.</p>
-        <p>Located in ${location}</p>
-        <img class="logoUrl" src="${logoUrl}" alt="${businessName} Logo"> <!-- Use logoUrl here -->
+        <h1>Welcome to ${businessName}</h1><br>
+        <p>We specialize in ${businessType}.</p><br>
+        <p>Located in ${location}</p><br>
+        <p>${summary}</p><br>
     </div>
     <footer>
         <a href="mailto:${email}"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email"></a>
