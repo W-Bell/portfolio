@@ -148,52 +148,56 @@ function generatePage() {
     
     <style>
         body {
-
             color: #f77f00;
             background-color: #003049;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center; /* Horizontally center content */
+            align-items: center; /* Vertically center content */
+            min-height: 100vh; /* Make sure the body occupies the full viewport */
         }
 
         .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 100px;
-            height: 90vh;
+            display: flex;
+            flex-direction: column; /* Vertically stack all quadrants */
+            align-items: center; /* Center each quadrant */
+            width: 100%;
+            max-width: 600px; /* Limit the width for better readability */
+            gap: 20px; /* Add space between each quadrant */
         }
 
         .business-info, .about, .contact-info, .image-section {
             border: 1px solid #fff;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .business-info {
-            grid-column: 1;
-            grid-row: 1;
-        }
-
-        .about {
-            grid-column: 1;
-            grid-row: 2;
-        }
-
-        .contact-info {
-            grid-column: 2;
-            grid-row: 1;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+            width: 100%; /* Ensure it takes full width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+            border-radius: 10px; /* Rounded corners */
         }
 
         .image-section {
-            grid-column: 2;
-            grid-row: 2;
+            background-image: ${backgroundImage};
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 200px; /* Ensure some height for the image */
             text-align: center;
+            color: white; /* Adjust text color for visibility */
         }
 
-        img {
+        .image-section img {
             max-width: 100%;
             height: auto;
+            display: none; /* Hide image tag since we're using a background */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px; /* Add some padding for smaller screens */
+            }
         }
     </style>
 </head>
@@ -215,25 +219,8 @@ function generatePage() {
             ${facebook ? `<p>Facebook: <a href="${facebook}">${facebook}</a></p>` : ''}
         </div>
         <div class="image-section">
-            <!-- <img src="https://example.com/logo.png" alt="${businessName} logo"> -->
-            background-image: ${backgroundImage};
-            background-size: cover;
-            background-repeat: no-repeat;
+            <!-- Background image applied to this section -->
         </div>
     </div>
-</body>
-</html>
-    `;
-    
-    const newBlob = new Blob([newPageContent], { type: 'text/html' });
-    const newUrl = URL.createObjectURL(newBlob);
-
-    const link = document.createElement('a');
-    link.href = newUrl;
-    link.download = 'landing_page.html';
-    link.click();
-}
-</script>
-
 </body>
 </html>
