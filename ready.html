@@ -148,9 +148,7 @@ function generatePage() {
     
     <style>
         body {
-            background-image: ${backgroundImage};
-            background-size: cover;
-            background-repeat: no-repeat;
+
             color: #f77f00;
             background-color: #003049;
             font-family: Arial, sans-serif;
@@ -162,8 +160,8 @@ function generatePage() {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 10px;
-            height: 100vh;
+            gap: 100px;
+            height: 90vh;
         }
 
         .business-info, .about, .contact-info, .image-section {
@@ -217,7 +215,10 @@ function generatePage() {
             ${facebook ? `<p>Facebook: <a href="${facebook}">${facebook}</a></p>` : ''}
         </div>
         <div class="image-section">
-            <img src="https://example.com/logo.png" alt="${businessName} logo">
+            <!-- <img src="https://example.com/logo.png" alt="${businessName} logo"> -->
+            background-image: ${backgroundImage};
+            background-size: cover;
+            background-repeat: no-repeat;
         </div>
     </div>
 </body>
