@@ -67,23 +67,6 @@
                     <input type="text" id="summary">
                 </div>
 
-    <!--        <div class="form-group">
-                    <label for="backgroundImage">Choose a Background Image:</label><br>
-                    <div>
-                        <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg')" id="bg1" checked>
-                        <label for="bg1">Mechanical      <img src="https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg" alt="Background 1" style="width: 100px; height: auto;"></label><br>
-                        
-                        <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" id="bg2">
-                        <label for="bg2">Professional      <img src="https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Background 2" style="width: 100px; height: auto;"></label><br>
-                        
-                        <input type="radio" name="backgroundImage" value="url('https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" id="bg3">
-                        <label for="bg3">Outdoor      <img src="https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Background 3" style="width: 100px; height: auto;"></label><br>
-
-                        <input type="radio" name="backgroundImage" value="" id="bg4">
-                        <label for="bg4">None</label><br>
-                    </div>
-                </div>  -->
-
                 <button class="btn" onclick="generatePage()">Generate Page</button>
                 <div class="form-group">
           </form>
@@ -112,12 +95,11 @@ function generatePage() {
     const businessName = document.getElementById('businessName').value;
     const businessType = document.getElementById('businessType').value;
     const location = document.getElementById('location').value;
-    const phone = document.getElementById('phone').value; // Fixed variable name for phone
+    const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
     const facebook = document.getElementById('facebook').value;
     const keywords = document.getElementById('keywords').value;
     const summary = document.getElementById('summary').value;
-//    const backgroundImage = document.querySelector('input[name="backgroundImage"]:checked').value;  
 
     const newPageContent = `
 <!DOCTYPE html>
@@ -199,5 +181,15 @@ function generatePage() {
             <img class="icon" src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Phone Icon">
         </a>
     </footer>
+</body>
+</html>
+`;
+    
+    const newWindow = window.open();
+    newWindow.document.write(newPageContent);
+    newWindow.document.close();
+}
+</script>
+
 </body>
 </html>
