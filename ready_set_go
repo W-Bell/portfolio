@@ -187,7 +187,7 @@ function generatePage() {
         <a href="mailto:${email}">${email}</a><br>
         <a href="tel:+${phone}">${phone}</a><br>
         ${facebook ? `<a href="${facebook}">Facebook</a><br>` : ''}
-        <p>&copy; 2024 ${businessName}. All Rights Reserved.</p>
+        <br><p>&copy; 2024 ${businessName}. All Rights Reserved.</p><br>
     </footer>
 </body>
 </html>
