@@ -141,7 +141,7 @@ function generatePage() {
         }
 
         a {
-            color: #5d92d4;
+            color: #00008B;
             text-decoration: none;
         }
 
@@ -167,9 +167,9 @@ function generatePage() {
         <p>Located in ${location}</p><br>
         <p>${summary}</p><br>
     </div>
-    <footer>
-        <a href="mailto:${email}">${email}</a><br>
-        <a href="tel:+${phone}">${phone}</a><br>
+    <footer><br>
+        <a href="mailto:${email}">${email}</a><br><br>
+        <a href="tel:+${phone}">${phone}</a><br><br>
         ${facebook ? `<a href="${facebook}">Facebook</a><br>` : ''}
         <p>&copy; 2024 ${businessName}. All Rights Reserved.</p>
     </footer>
