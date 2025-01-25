@@ -51,6 +51,7 @@ body {
 .active {
   background-color: #f77f00;
   color: black;
+  border: 5px solid #f77f00;
 }
 .topnav a:hover, .dropdown:hover .dropbtn {
   background-color: #555;
