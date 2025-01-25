@@ -53,7 +53,7 @@ body {
 }
 .topnav a:hover, .dropdown:hover .dropbtn {
   background-color: #555;
-  color: white;
+  color: black;
 }
 footer {
 	font-size: 20px;
