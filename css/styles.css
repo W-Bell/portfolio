@@ -38,7 +38,7 @@ body {
 .topnav {
   background-color: black;
   overflow: hidden;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 .topnav a {
   float: left;
