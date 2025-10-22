@@ -2,6 +2,7 @@ body {
 	background-color: #003049;
 	color: #f77f00;
 	min-width: 550px;
+  padding-top: 10px;
 }
 .jumbotron {
 	background-color: #eae2b7;
